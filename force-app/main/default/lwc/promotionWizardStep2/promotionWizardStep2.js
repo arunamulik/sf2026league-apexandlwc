@@ -1,4 +1,6 @@
 import { LightningElement, api, track } from 'lwc';
+import { fromContext } from '@lwc/state';
+import promotionStateManager from "c/promotionStateManager";
 
 /** TODO FOR THE CHALLENGE: import the state manager, and the context modules */
 
@@ -7,7 +9,7 @@ import getProducts from '@salesforce/apex/PromotionCreatorCtrl.getProducts';
 export default class PromotionWizardStep2 extends LightningElement {
 
     /** TODO FOR THE CHALLENGE: initialize/inherit the state from the parent */
-
+    promotionState =fromContext(promotionStateManager);
     @track products = [];
     @track selectedProductsMap = new Map();
     
